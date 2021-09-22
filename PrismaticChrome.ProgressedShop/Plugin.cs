@@ -40,7 +40,10 @@ namespace PrismaticChrome.ProgressedShop
                 if (config.lastpred || !config.Predict) continue;
                 using (var context = Db.Context<ShopItem>())
                     foreach (var item in config.items)
+                    {
+                        item.infinity = true;
                         context.Insert(item);
+                    }
                 config.lastpred = true;
             }
         }

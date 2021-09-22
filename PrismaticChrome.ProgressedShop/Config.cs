@@ -12,7 +12,7 @@ namespace PrismaticChrome.ProgressedShop
 {
     public class Config : Config<Config>
     {
-        protected override string Filename => "PrismaticChrome.ProgressedShop";
+        protected override string Filename => "PrismaticChrome.ProgressedShop.json";
         public ProgressItem[] items;
     }
     public class ProgressItem
@@ -26,7 +26,8 @@ namespace PrismaticChrome.ProgressedShop
         private static Func<bool> GenExp(string exp)
         {
             var s = exp.Split('.');
-            var field = typeof(Main).Assembly.GetType(s[0]).GetField(s[1], BindingFlags.Static | BindingFlags.Public);
+            var @class = string.Join(".", s.Take(s.Length - 1));
+            var field = typeof(Main).Assembly.GetType(@class).GetField(s.Last(), BindingFlags.Static | BindingFlags.Public);
             return () => (bool)field.GetValue(null);
         }
         private Func<bool> Compile()

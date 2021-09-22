@@ -1,0 +1,161 @@
+{
+    "items": [
+        {
+            "include": ["Terraria.NPC.downedSlimeKing"],
+            "exclude": [],
+            "items": [
+				{"type": 2585, "stack": 1, "price": 5000},
+				{"type": 2430, "stack": 1, "price": 20000},
+				{"type": 53, "stack": 1, "price": 10000},
+				{"type": 54, "stack": 1, "price": 15000},
+				{"type": 29, "stack": 5, "price": 40000},
+				{"type": 2676, "stack": 50, "price": 50000},
+				{"type": 236, "stack": 5, "price": 50000},
+				{"type": 1176, "stack": 10, "price": 1000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedBoss1"],
+            "exclude": [],
+            "items": [
+				{"type": 3097, "stack": 1, "price": 15000},
+				{"type": 159, "stack": 1, "price": 20000},
+				{"type": 987, "stack": 1, "price": 12000},
+				{"type": 158, "stack": 1, "price": 10000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedBoss2", "Terraria.WorldGen.crimson"],
+            "exclude": [],
+            "items": [
+				{"type": 3224, "stack": 1, "price": 20000},
+				{"type": 3223, "stack": 1, "price": 20000},
+				{"type": 86, "stack": 80, "price": 8000},
+				{"type": 57, "stack": 50, "price": 30000},
+				{"type": 1329, "stack": 80, "price": 8000},
+				{"type": 212, "stack": 1, "price": 20000},
+				{"type": 65, "stack": 1, "price": 80000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedBoss2"],
+            "exclude": ["Terraria.WorldGen.crimson"],
+            "items": [
+				{"type": 3224, "stack": 1, "price": 20000},
+				{"type": 3223, "stack": 1, "price": 20000},
+				{"type": 86, "stack": 80, "price": 8000},
+				{"type": 1329, "stack": 80, "price": 8000},
+				{"type": 1257, "stack": 50, "price": 30000},
+				{"type": 212, "stack": 1, "price": 20000},
+				{"type": 65, "stack": 1, "price": 80000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedQueenBee"],
+            "exclude": [],
+            "items": [
+				{"type": 2431, "stack": 50, "price": 8000},
+				{"type": 857, "stack": 1, "price": 15000},
+				{"type": 2502, "stack": 1, "price": 100000},
+				{"type": 285, "stack": 1, "price": 15000}
+            ]
+        },
+        {
+            "include": ["Terraria.Main.hardMode"],
+            "exclude": [],
+            "items": [
+				{"type": 3324, "stack": 1, "price": 100000},
+				{"type": 4795, "stack": 1, "price": 100000},
+				{"type": 5010, "stack": 1, "price": 20000},
+				{"type": 522, "stack": 50, "price": 10000},
+				{"type": 1332, "stack": 50, "price": 10000},
+				{"type": 950, "stack": 1, "price": 20000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedMechBoss1"],
+            "exclude": [],
+            "items": [
+				{"type": 3325, "stack": 1, "price": 150000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedMechBoss2"],
+            "exclude": [],
+            "items": [
+				{"type": 3326, "stack": 1, "price": 150000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedMechBoss3"],
+            "exclude": [],
+            "items": [
+				{"type": 3327, "stack": 1, "price": 150000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedPlantBoss"],
+            "exclude": [],
+            "items": [
+				{"type": 3328, "stack": 1, "price": 1000000},
+				{"type": 1291, "stack": 10, "price": 50000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedEmpressOfLight"],
+            "exclude": [],
+            "items": [
+				{"type": 4782, "stack": 3, "price": 2000000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedFishron"],
+            "exclude": [],
+            "items": [
+				{"type": 3329, "stack": 3, "price": 1000000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedGolemBoss"],
+            "exclude": [],
+            "items": [
+				{"type": 3330, "stack": 3, "price": 1500000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedTowerSolar"],
+            "exclude": [],
+            "items": [
+				{"type": 3458, "stack": 10, "price": 1000000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedTowerNebula"],
+            "exclude": [],
+            "items": [
+				{"type": 3456, "stack": 10, "price": 1000000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedTowerVortex"],
+            "exclude": [],
+            "items": [
+				{"type": 3457, "stack": 10, "price": 1000000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedTowerStardust"],
+            "exclude": [],
+            "items": [
+				{"type": 3459, "stack": 10, "price": 1000000}
+            ]
+        },
+        {
+            "include": ["Terraria.NPC.downedMoonlord"],
+            "exclude": [],
+            "items": [
+				{"type": 3332, "stack": 3, "price": 5000000}
+            ]
+        }
+    ]
+}
