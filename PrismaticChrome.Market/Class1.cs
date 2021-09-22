@@ -6,7 +6,4 @@ using System.Threading.Tasks;
 
 namespace PrismaticChrome.Market
 {
-    public class Class1
-    {
-    }
 }
