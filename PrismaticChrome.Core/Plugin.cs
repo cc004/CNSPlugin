@@ -21,6 +21,7 @@ namespace PrismaticChrome.Core
         public override void Initialize()
         {
             RestHelper.Register<Rests>("economy");
+            CommandHelper.Register<Commands>("eco", "经济");
         }
     }
 }
