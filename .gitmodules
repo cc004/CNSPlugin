@@ -1,0 +1,3 @@
+[submodule "LazyUtils"]
+	path = LazyUtils
+	url = git@github.com:cc004/LazyUtils.git

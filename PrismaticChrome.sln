@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Core", "PrismaticChrome.Core\PrismaticChrome.Core.csproj", "{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.RPG", "PrismaticChrome.RPG\PrismaticChrome.RPG.csproj", "{8C96594B-0487-4120-8987-4D8FFF6A66D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Market", "PrismaticChrome.Market\PrismaticChrome.Market.csproj", "{D3F17218-39EE-4FB9-8284-48DF515E3633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyUtils", "LazyUtils\LazyUtils\LazyUtils.csproj", "{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C96594B-0487-4120-8987-4D8FFF6A66D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C96594B-0487-4120-8987-4D8FFF6A66D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C96594B-0487-4120-8987-4D8FFF6A66D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C96594B-0487-4120-8987-4D8FFF6A66D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F17218-39EE-4FB9-8284-48DF515E3633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F17218-39EE-4FB9-8284-48DF515E3633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F17218-39EE-4FB9-8284-48DF515E3633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F17218-39EE-4FB9-8284-48DF515E3633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB30457F-9F2D-49BC-BE7D-BDD161BF7125}
+	EndGlobalSection
+EndGlobal
