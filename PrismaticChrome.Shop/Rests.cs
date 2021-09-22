@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using LazyUtils;
 using Newtonsoft.Json.Linq;
-using PrismaticChrome.Core;
 using Rests;
 using TShockAPI;
 
-namespace PrismaticChrome.Market
+namespace PrismaticChrome.Shop
 {
     internal class Rests
     {
-        [Permission("economy.market.player")]
+        [Permission("economy.shop.player")]
         public static JToken getshopitems(RestRequestArgs args)
         {
             using (var context = Db.Context<ShopItem>())

@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Core", "Pri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.RPG", "PrismaticChrome.RPG\PrismaticChrome.RPG.csproj", "{8C96594B-0487-4120-8987-4D8FFF6A66D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Market", "PrismaticChrome.Market\PrismaticChrome.Market.csproj", "{D3F17218-39EE-4FB9-8284-48DF515E3633}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Shop", "PrismaticChrome.Shop\PrismaticChrome.Shop.csproj", "{D3F17218-39EE-4FB9-8284-48DF515E3633}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyUtils", "LazyUtils\LazyUtils\LazyUtils.csproj", "{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.ProgressedShop", "PrismaticChrome.ProgressedShop\PrismaticChrome.ProgressedShop.csproj", "{01209B3D-CD1C-4EE4-98AE-B2193970FE74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

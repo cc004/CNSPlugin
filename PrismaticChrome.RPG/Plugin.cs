@@ -70,35 +70,37 @@ namespace PrismaticChrome.RPG
         }
         public override void Initialize()
         {
-            GetDataHandlers.KillMe.Register((_, args) =>
+            GetDataHandlers.KillMe.Register(OnKillMe);
+
+            GetDataHandlers.NPCStrike.Register(OnNPCStrike);
+        }
+
+        private static void OnNPCStrike(object _, GetDataHandlers.NPCStrikeEventArgs args)
+        {
+            var npc = Main.npc[args.ID];
+            var val = (int) (FloatingCoefficient() * Math.Min(CalcRealDmg(npc, args.Damage, args.Critical > 0), (npc.realLife > 0 ? Main.npc[npc.realLife] : npc).life));
+            using (var query = args.Player.Get<Money>())
             {
-                if (!(Config.Instance.DeathPenalty > 0)) return;
-                using (var query = args.Player.Get<Money>())
-                {
-                    var money = query.Single().money;
-                    var loss = (int)(money * Config.Instance.DeathPenalty);
-                    query.Set(d => d.money, d => d.money - loss).Update();
-                    args.Player.SendMessage($"你因死亡失去{loss}$", Color.MediumBlue);
-                }
-            });
+                query.Set(d => d.money, d => d.money + val);
 
-            GetDataHandlers.NPCStrike.Register((_, args) =>
+
+                if (args.Player.GetData<long>("spamTimer") - LazyPlugin.timer < 60) return;
+                args.Player.SetData("spamTimer", LazyPlugin.timer);
+
+                SendCombatText(args.Player.TPlayer.Top, $"+{val}$", Color.Yellow, args.Player.Index);
+            }
+        }
+
+        private static void OnKillMe(object _, GetDataHandlers.KillMeEventArgs args)
+        {
+            if (!(Config.Instance.DeathPenalty > 0)) return;
+            using (var query = args.Player.Get<Money>())
             {
-                var npc = Main.npc[args.ID];
-                var val = (int) (FloatingCoefficient() *
-                                 Math.Min(CalcRealDmg(npc, args.Damage, args.Critical > 0),
-                                     (npc.realLife > 0 ? Main.npc[npc.realLife] : npc).life));
-                using (var query = args.Player.Get<Money>())
-                {
-                    query.Set(d => d.money, d => d.money + val);
-
-
-                    if (args.Player.GetData<long>("spamTimer") - LazyPlugin.timer < 60) return;
-                    args.Player.SetData("spamTimer", LazyPlugin.timer);
-
-                    SendCombatText(args.Player.TPlayer.Top, $"+{val}$", Color.Yellow, args.Player.Index);
-                }
-            });
+                var money = query.Single().money;
+                var loss = (int) (money * Config.Instance.DeathPenalty);
+                query.Set(d => d.money, d => d.money - loss).Update();
+                args.Player.SendMessage($"你因死亡失去{loss}$", Color.MediumBlue);
+            }
         }
     }
 }

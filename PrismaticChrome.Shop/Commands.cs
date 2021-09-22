@@ -8,7 +8,7 @@ using LinqToDB;
 using PrismaticChrome.Core;
 using TShockAPI;
 
-namespace PrismaticChrome.Market
+namespace PrismaticChrome.Shop
 {
     internal class Commands
     {
@@ -17,7 +17,7 @@ namespace PrismaticChrome.Market
         private static TSPlayer GetOnline(string name) =>
             TShock.Players.FirstOrDefault(plr => plr?.Account?.Name == name);
 
-        [Alias("列表"), Permission("economy.market.player")]
+        [Alias("列表"), Permission("economy.shop.player")]
         public static void list(CommandArgs args, int page)
         {
             using (var context = Db.Context<ShopItem>())
@@ -30,10 +30,10 @@ namespace PrismaticChrome.Market
             }
         }
 
-        [Alias("列表"), Permission("economy.market.player")]
+        [Alias("列表"), Permission("economy.shop.player")]
         public static void list(CommandArgs args) => list(args, 1);
 
-        [Alias("购买"), Permission("economy.market.player"), RealPlayer]
+        [Alias("购买"), Permission("economy.shop.player"), RealPlayer]
         public static void buy(CommandArgs args, int index)
         {
             using (var context = Db.Context<ShopItem>())
@@ -99,19 +99,19 @@ namespace PrismaticChrome.Market
             item.Send();
         }
 
-        [Alias("出售"), Permission("economy.market.player"), RealPlayer]
+        [Alias("出售"), Permission("economy.shop.player"), RealPlayer]
         public static void sell(CommandArgs args, int price)
         {
             AddShopItem(args, price, false);
         }
 
-        [Alias("添加"), Permission("economy.market.admin"), RealPlayer]
+        [Alias("添加"), Permission("economy.shop.admin"), RealPlayer]
         public static void add(CommandArgs args, int price)
         {
             AddShopItem(args, price, true);
         }
 
-        [Alias("删除"), Permission("economy.market.player"), RealPlayer]
+        [Alias("删除"), Permission("economy.shop.player"), RealPlayer]
         public static void del(CommandArgs args, int index)
         {
             using (var context = Db.Context<ShopItem>())
@@ -123,7 +123,7 @@ namespace PrismaticChrome.Market
                     return;
                 }
 
-                if (item.owner != args.Player.Account.Name && !args.Player.HasPermission("economy.market.admin"))
+                if (item.owner != args.Player.Account.Name && !args.Player.HasPermission("economy.shop.admin"))
                 {
                     args.Player.SendErrorMessage("你没有权限删除别人的商品");
                     return;

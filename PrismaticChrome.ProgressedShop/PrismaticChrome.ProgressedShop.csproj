@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3F17218-39EE-4FB9-8284-48DF515E3633}</ProjectGuid>
+    <ProjectGuid>{01209B3D-CD1C-4EE4-98AE-B2193970FE74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrismaticChrome.Market</RootNamespace>
-    <AssemblyName>PrismaticChrome.Market</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>PrismaticChrome.ProgressedShop</RootNamespace>
+    <AssemblyName>PrismaticChrome.ProgressedShop</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -38,8 +38,7 @@
       <HintPath>..\packages\TerrariaServer.TShock.4.5.5\lib\net452\HttpServer.dll</HintPath>
     </Reference>
     <Reference Include="linq2db, Version=3.3.0.0, Culture=neutral, PublicKeyToken=e41013125f9e410a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LazyUtils\packages\linq2db.3.3.0\lib\net45\linq2db.dll</HintPath>
+      <HintPath>..\packages\linq2db.3.3.0\lib\net45\linq2db.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Data.Sqlite, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\TerrariaServer.TShock.4.5.5\lib\net452\Mono.Data.Sqlite.dll</HintPath>
@@ -69,19 +68,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Rests.cs" />
-    <Compile Include="Commands.cs" />
-    <Compile Include="ShopItem.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LazyUtils\LazyUtils\LazyUtils.csproj">
-      <Project>{e0109af4-d4da-46a4-8508-d9e4acdbebb6}</Project>
+      <Project>{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}</Project>
       <Name>LazyUtils</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PrismaticChrome.Core\PrismaticChrome.Core.csproj">
-      <Project>{7851fd17-e5dc-4b16-8eef-6af30784a8b1}</Project>
-      <Name>PrismaticChrome.Core</Name>
+    <ProjectReference Include="..\PrismaticChrome.Shop\PrismaticChrome.Shop.csproj">
+      <Project>{d3f17218-39ee-4fb9-8284-48df515e3633}</Project>
+      <Name>PrismaticChrome.Shop</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

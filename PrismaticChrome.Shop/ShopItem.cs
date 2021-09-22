@@ -9,7 +9,7 @@ using Terraria;
 using Terraria.ID;
 using TShockAPI;
 
-namespace PrismaticChrome.Market
+namespace PrismaticChrome.Shop
 {
     public class ShopItem : ConfigBase<ShopItem>
     {
