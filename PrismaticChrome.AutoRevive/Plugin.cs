@@ -14,6 +14,7 @@ namespace PrismaticChrome.AutoRevive
     [ApiVersion(2, 1)]
     public class Plugin : TerrariaPlugin
     {
+        public override string Name => "PrismaticChrome.AutoRevive";
         public Plugin(Main game) : base(game)
         {
         }
