@@ -50,8 +50,9 @@ namespace PrismaticChrome.ProgressedShop
                         context.Insert(new ShopItem()
                         {
                             content = JsonConvert.SerializeObject((object)item),
-                            infinity = false,
-                            price = item.price
+                            infinity = true,
+                            price = item.price,
+                            provider = "物品"
                         });
                     }
                 config.lastpred = true;

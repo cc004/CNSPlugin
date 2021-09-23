@@ -160,9 +160,9 @@ namespace PrismaticChrome.Shop
         public static void Default(CommandArgs args)
         {
             args.Player.SendInfoMessage("用法:\n" +
-                                        "/shop add [类型] <价格>\n" +
+                                        "/shop add [类型] <个数> <价格>\n" +
                                         "/shop del <商品索引>\n" +
-                                        "/shop sell [类型] <价格>\n" +
+                                        "/shop sell [类型] <个数> <价格>\n" +
                                         "/shop buy <商品索引>\n" +
                                         "/shop list [页码]");
         }

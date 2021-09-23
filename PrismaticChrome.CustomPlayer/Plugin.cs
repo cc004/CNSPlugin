@@ -29,6 +29,26 @@ namespace PrismaticChrome.CustomPlayer
         {
         }
 
+        private static Dictionary<string, string[]> permCache = new Dictionary<string, string[]>();
+
+        private static string[] GetPermissionWithCache(string account)
+        {
+            if (!permCache.ContainsKey(account))
+			{
+                using (var query = Db.Get<Customized>(account))
+                {
+                    permCache[account] = query.Single().permission?.Split('\n') ?? new string[0];
+                }
+            }
+
+            return permCache[account];
+        }
+
+        internal static void ClearCache()
+        {
+            permCache.Clear();
+        }
+
         public override void Initialize()
         {
             PlayerHooks.PlayerPermission += PlayerHooks_PlayerPermission;
@@ -201,14 +221,9 @@ namespace PrismaticChrome.CustomPlayer
 		}
 		private static void PlayerHooks_PlayerPermission(PlayerPermissionEventArgs args)
         {
-            using (var query = args.Player.Get<Customized>())
-            {
-                var perm = query.Single().permission;
-                if (string.IsNullOrEmpty(perm)) return;
-				var perms = perm.Split('\n');
-                if (perms.Contains(args.Permission)) args.Result = PermissionHookResult.Granted;
-                if (perms.Contains("!" + args.Permission)) args.Result = PermissionHookResult.Denied;
-            }
+            var perms = GetPermissionWithCache(args.Player.Account.Name);
+            if (perms.Contains(args.Permission)) args.Result = PermissionHookResult.Granted;
+            if (perms.Contains("!" + args.Permission)) args.Result = PermissionHookResult.Denied;
         }
     }
 }
