@@ -34,6 +34,8 @@ namespace PrismaticChrome.Core
                     query.Set(d => d.money, d => d.money - amount).Update();
                     query2.Set(d => d.money, d => d.money + amount).Update();
                     args.Player.SendSuccessMessage($"成功向玩家{target.Name}支付{amount}$");
+                    args.Player.NoticeChange(-amount);
+                    target.NoticeChange(amount);
                 }
             }
         }
@@ -44,10 +46,8 @@ namespace PrismaticChrome.Core
             using (var query = Db.Get<Money>(player))
             {
                 query.Set(d => d.money, d => d.money + amount).Update();
-                if (amount >= 0)
-                    args.Player.SendSuccessMessage($"成功给予{player} {amount}$");
-                else
-                    args.Player.SendSuccessMessage($"成功扣除{player} {-amount}$");
+                args.Player.NoticeChange(amount);
+                args.Player.SendSuccessMessage(amount >= 0 ? $"成功给予{player} {amount}$" : $"成功扣除{player} {-amount}$");
             }
         }
         [Alias("查看"), Permission("economy.admin")]

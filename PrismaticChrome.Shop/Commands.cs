@@ -23,10 +23,10 @@ namespace PrismaticChrome.Shop
             using (var context = Db.Context<ShopItem>())
             {
                 var sb = new StringBuilder();
-                sb.AppendLine($"当前商店商品({page}/{context.Config.Count() / pagelimit}):");
+                sb.AppendLine($"当前商店商品({page}/{(int)Math.Round(context.Config.Count() / (double)pagelimit)}):");
                 sb.Append(string.Join("\n",
                     context.Config.OrderByDescending(d => d.id).Skip((page - 1) * pagelimit).Take(pagelimit)));
-                args.Player.SendSuccessMessage(sb.ToString());
+                args.Player.SendInfoMessage(sb.ToString());
             }
         }
 
@@ -61,13 +61,18 @@ namespace PrismaticChrome.Shop
                     }
 
                     query.Set(d => d.money, d => d.money - item.price).Update();
+                    args.Player.NoticeChange(-item.price);
                     item.GiveTo(args.Player);
                     if (string.IsNullOrEmpty(item.owner)) return;
 
                     using (var query2 = Db.Get<Money>(item.owner))
                         query2.Set(d => d.money, d => d.money + item.price).Update();
 
-                    GetOnline(item.owner)?.SendSuccessMessage($"玩家[{args.Player.Name}]以购买了您的{item}");
+                    var target = GetOnline(item.owner);
+                    if (target == null) return;
+                    args.Player.SendSuccessMessage("购买成功！");
+                    target.SendSuccessMessage($"玩家[{args.Player.Name}]购买了您的{item}");
+                    target.NoticeChange(item.price);
                 }
             }
         }
@@ -83,7 +88,7 @@ namespace PrismaticChrome.Shop
 
             using (var context = Db.Context<ShopItem>())
             {
-                var shopitem = new ShopItem
+                context.Config.Insert(() => new ShopItem
                 {
                     type = item.type,
                     price = price,
@@ -91,12 +96,12 @@ namespace PrismaticChrome.Shop
                     prefix = item.prefix,
                     stack = item.stack,
                     infinity = infinity
-                };
-                context.Config.Insert(() => shopitem);
+                });
             }
 
             item.TurnToAir();
             item.Send();
+            args.Player.SendSuccessMessage("商品已添加！");
         }
 
         [Alias("出售"), Permission("economy.shop.player"), RealPlayer]
@@ -137,6 +142,7 @@ namespace PrismaticChrome.Shop
                 
                 item.GiveTo(args.Player);
                 context.Config.Where(d => d.id == index).Delete();
+                args.Player.SendSuccessMessage("商品已下架！");
             }
         }
 

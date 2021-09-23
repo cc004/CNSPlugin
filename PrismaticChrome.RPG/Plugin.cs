@@ -7,6 +7,7 @@ using HttpServer;
 using LazyUtils;
 using LinqToDB;
 using Microsoft.Xna.Framework;
+using OTAPI;
 using PrismaticChrome.Core;
 using Terraria;
 using Terraria.Localization;
@@ -18,10 +19,6 @@ namespace PrismaticChrome.RPG
     [ApiVersion(2, 1)]
     public class Plugin : TerrariaPlugin
     {
-        private static void SendCombatText(Vector2 pos, string text, Color color, int remoteClient = -1, int ignoreClient = -1)
-        {
-            NetMessage.SendData(119, remoteClient, ignoreClient, NetworkText.FromLiteral(text), (int)color.PackedValue, pos.X, pos.Y);
-        }
 
         public override string Name => "PrismaticChrome.RPG";
 
@@ -29,14 +26,7 @@ namespace PrismaticChrome.RPG
         {
         }
 
-        private static Random rnd = new Random();
-        private static float FloatingCoefficient()
-        {
-            var cfg = Config.Instance;
-            return ((float)rnd.NextDouble() * (cfg.FloatMoneyMax - cfg.FloatMoneyMin) + cfg.FloatMoneyMin) * cfg.BaseMoney;
-        }
-
-        private static double CalcRealDmg(NPC npc, int damage, bool crit)
+        private static float CalcRealDmg(NPC npc, int damage, bool crit)
         {
 
             double num = damage;
@@ -66,29 +56,23 @@ namespace PrismaticChrome.RPG
             {
                 num = 0.0;
             }
-            return num;
+            return (float)num;
         }
         public override void Initialize()
         {
             GetDataHandlers.KillMe.Register(OnKillMe);
-
             GetDataHandlers.NPCStrike.Register(OnNPCStrike);
+            ServerApi.Hooks.NpcKilled.Register(this, args => allocator.SettleNPC(args.npc));
+            ServerApi.Hooks.GamePostUpdate.Register(this, _ => allocator.Update());
         }
+
+        private static readonly MoneyAllocator allocator = new MoneyAllocator();
 
         private static void OnNPCStrike(object _, GetDataHandlers.NPCStrikeEventArgs args)
         {
             var npc = Main.npc[args.ID];
-            var val = (int) (FloatingCoefficient() * Math.Min(CalcRealDmg(npc, args.Damage, args.Critical > 0), (npc.realLife > 0 ? Main.npc[npc.realLife] : npc).life));
-            using (var query = args.Player.Get<Money>())
-            {
-                query.Set(d => d.money, d => d.money + val);
-
-
-                if (args.Player.GetData<long>("spamTimer") - LazyPlugin.timer < 60) return;
-                args.Player.SetData("spamTimer", LazyPlugin.timer);
-
-                SendCombatText(args.Player.TPlayer.Top, $"+{val}$", Color.Yellow, args.Player.Index);
-            }
+            var val = CalcRealDmg(npc, args.Damage, args.Critical > 0);
+            allocator.AddDamage(Main.npc[args.ID], args.Player?.Account?.Name, val);
         }
 
         private static void OnKillMe(object _, GetDataHandlers.KillMeEventArgs args)
@@ -99,6 +83,7 @@ namespace PrismaticChrome.RPG
                 var money = query.Single().money;
                 var loss = (int) (money * Config.Instance.DeathPenalty);
                 query.Set(d => d.money, d => d.money - loss).Update();
+                args.Player.NoticeChange(-loss);
                 args.Player.SendMessage($"你因死亡失去{loss}$", Color.MediumBlue);
             }
         }
