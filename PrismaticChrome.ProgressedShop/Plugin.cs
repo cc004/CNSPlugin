@@ -5,12 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using LazyUtils;
 using LinqToDB;
+using Newtonsoft.Json;
 using PrismaticChrome.Shop;
 using Terraria;
 using TerrariaApi.Server;
 
 namespace PrismaticChrome.ProgressedShop
 {
+    public class ProtoItemWithPrice : ProtoItem
+    {
+        public int price { internal get; set; }
+    }
+
     [ApiVersion(2, 1)]
     public class Plugin : TerrariaPlugin
     {
@@ -41,8 +47,12 @@ namespace PrismaticChrome.ProgressedShop
                 using (var context = Db.Context<ShopItem>())
                     foreach (var item in config.items)
                     {
-                        item.infinity = true;
-                        context.Insert(item);
+                        context.Insert(new ShopItem()
+                        {
+                            content = JsonConvert.SerializeObject((object)item),
+                            infinity = false,
+                            price = item.price
+                        });
                     }
                 config.lastpred = true;
             }

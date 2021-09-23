@@ -18,7 +18,7 @@ namespace PrismaticChrome.ProgressedShop
     {
         public string[] include;
         public string[] exclude;
-        public ShopItem[] items;
+        public ProtoItemWithPrice[] items;
 
         private Func<bool> predict;
         internal bool lastpred;

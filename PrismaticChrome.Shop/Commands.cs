@@ -54,7 +54,7 @@ namespace PrismaticChrome.Shop
                         return;
                     }
 
-                    if (!args.Player.InventorySlotAvailable)
+                    if (!item.TryGiveTo(args.Player))
                     {
                         args.Player.SendErrorMessage("背包已满");
                         return;
@@ -62,7 +62,7 @@ namespace PrismaticChrome.Shop
 
                     query.Set(d => d.money, d => d.money - item.price).Update();
                     args.Player.NoticeChange(-item.price);
-                    item.GiveTo(args.Player);
+                    ;
                     if (!item.infinity)
                         context.Config.Where(d => d.id == item.id).Delete();
                     args.Player.SendSuccessMessage("购买成功！");
@@ -80,12 +80,12 @@ namespace PrismaticChrome.Shop
             }
         }
 
-        private static void AddShopItem(CommandArgs args, int price, bool infinity)
+        private static void AddShopItem(CommandArgs args, string provider, int count, int price, bool infinity)
         {
-            var item = args.Player.SelectedItem;
-            if (item.IsAir)
+            var pro = Plugin.GetProvider(provider);
+            if (!pro.TryTakeFrom(args.Player, count, out var content))
             {
-                args.Player.SendErrorMessage("你手持物品为空");
+                args.Player.SendErrorMessage("物品数量不足");
                 return;
             }
 
@@ -93,30 +93,39 @@ namespace PrismaticChrome.Shop
             {
                 context.Config.Insert(() => new ShopItem
                 {
-                    type = item.type,
+                    content = content,
                     price = price,
                     owner = infinity ? null : args.Player.Account.Name,
-                    prefix = item.prefix,
-                    stack = item.stack,
+                    provider = provider,
                     infinity = infinity
                 });
             }
-
-            item.TurnToAir();
-            item.Send();
+            
             args.Player.SendSuccessMessage("商品已添加！");
         }
 
         [Alias("出售"), Permission("economy.shop.player"), RealPlayer]
-        public static void sell(CommandArgs args, int price)
+        public static void sell(CommandArgs args, string provider, int count, int price)
         {
-            AddShopItem(args, price, false);
+            AddShopItem(args, provider, count, price, false);
         }
 
         [Alias("添加"), Permission("economy.shop.admin"), RealPlayer]
-        public static void add(CommandArgs args, int price)
+        public static void add(CommandArgs args, string provider, int count, int price)
         {
-            AddShopItem(args, price, true);
+            AddShopItem(args, provider, count, price, true);
+        }
+
+        [Alias("出售"), Permission("economy.shop.player"), RealPlayer]
+        public static void sell(CommandArgs args, int count, int price)
+        {
+            sell(args, "物品", count, price);
+        }
+
+        [Alias("添加"), Permission("economy.shop.admin"), RealPlayer]
+        public static void add(CommandArgs args, int count, int price)
+        {
+            add(args, "物品", count, price);
         }
 
         [Alias("删除"), Permission("economy.shop.player"), RealPlayer]
@@ -137,13 +146,12 @@ namespace PrismaticChrome.Shop
                     return;
                 }
                 
-                if (!args.Player.InventorySlotAvailable)
+                if (!item.TryGiveTo(args.Player))
                 {
                     args.Player.SendErrorMessage("背包已满");
                     return;
                 }
                 
-                item.GiveTo(args.Player);
                 context.Config.Where(d => d.id == index).Delete();
                 args.Player.SendSuccessMessage("商品已下架！");
             }
@@ -152,9 +160,9 @@ namespace PrismaticChrome.Shop
         public static void Default(CommandArgs args)
         {
             args.Player.SendInfoMessage("用法:\n" +
-                                        "/shop add <价格>\n" +
+                                        "/shop add [类型] <价格>\n" +
                                         "/shop del <商品索引>\n" +
-                                        "/shop sell <价格>\n" +
+                                        "/shop sell [类型] <价格>\n" +
                                         "/shop buy <商品索引>\n" +
                                         "/shop list [页码]");
         }

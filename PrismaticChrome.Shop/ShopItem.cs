@@ -13,29 +13,27 @@ namespace PrismaticChrome.Shop
 {
     public class ShopItem : ConfigBase<ShopItem>
     {
+        internal IStorageProvider Provider => Plugin.GetProvider(provider);
+
         [Identity, PrimaryKey]
         public int id { get; set; }
         [Column]
-        public string owner { get; set; }
+        public string provider { get; set; }
         [Column]
-        public int type { get; set; }
-        [Column]
-        public byte prefix { get; set; }
-        [Column]
-        public int stack { get; set; }
+        public string content { get; set; }
         [Column]
         public int price { get; set; }
         [Column]
         public bool infinity { get; set; }
+        [Column]
+        public string owner { get; set; }
 
         public override string ToString()
         {
-            return $"{id:D3}.{(prefix > 0 ? $"[i/p{prefix}:{type}]" : $"[i/s{stack}:{type}]")}{Lang.GetItemNameValue(type)} {price}$({(infinity ? "无限" : $"由{owner}出售")})";
+            return $"{id:D3}.{Plugin.GetProvider(provider).SerializeToText(content)} {price}$({(infinity ? "无限" : $"由{owner}出售")})";
         }
 
-        public void GiveTo(TSPlayer player)
-        {
-            player.GiveItem(type, stack, prefix);
-        }
+        internal bool TryGiveTo(TSPlayer player) => Provider.TryGiveTo(player, content);
+
     }
 }
