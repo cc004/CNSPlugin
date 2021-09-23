@@ -72,19 +72,21 @@ namespace PrismaticChrome.RPG
         {
             var npc = Main.npc[args.ID];
             var val = CalcRealDmg(npc, args.Damage, args.Critical > 0);
+            if (Config.Instance.multiplier.TryGetValue(npc.type, out var multiplier))
+                val *= multiplier;
             allocator.AddDamage(Main.npc[args.ID], args.Player?.Account?.Name, val);
         }
 
         private static void OnKillMe(object _, GetDataHandlers.KillMeEventArgs args)
         {
-            if (!(Config.Instance.DeathPenalty > 0)) return;
             using (var query = args.Player.Get<Money>())
             {
                 var money = query.Single().money;
-                var loss = (int) (money * Config.Instance.DeathPenalty);
+                var loss = (int) ((money - Config.Instance.DeathPenaltyLimit) * Config.Instance.DeathPenalty);
+                if (money <= 0) return;
                 query.Set(d => d.money, d => d.money - loss).Update();
                 args.Player.NoticeChange(-loss);
-                args.Player.SendMessage($"你因死亡失去{loss}$", Color.MediumBlue);
+                args.Player.SendMessage($"你因死亡失去{loss}$", Color.OrangeRed);
             }
         }
     }

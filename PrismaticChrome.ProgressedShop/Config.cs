@@ -12,7 +12,6 @@ namespace PrismaticChrome.ProgressedShop
 {
     public class Config : Config<Config>
     {
-        protected override string Filename => "PrismaticChrome.ProgressedShop.json";
         public ProgressItem[] items;
     }
     public class ProgressItem

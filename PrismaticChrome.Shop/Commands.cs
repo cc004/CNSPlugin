@@ -63,6 +63,10 @@ namespace PrismaticChrome.Shop
                     query.Set(d => d.money, d => d.money - item.price).Update();
                     args.Player.NoticeChange(-item.price);
                     item.GiveTo(args.Player);
+                    if (!item.infinity)
+                        context.Config.Where(d => d.id == item.id).Delete();
+                    args.Player.SendSuccessMessage("购买成功！");
+
                     if (string.IsNullOrEmpty(item.owner)) return;
 
                     using (var query2 = Db.Get<Money>(item.owner))
@@ -70,7 +74,6 @@ namespace PrismaticChrome.Shop
 
                     var target = GetOnline(item.owner);
                     if (target == null) return;
-                    args.Player.SendSuccessMessage("购买成功！");
                     target.SendSuccessMessage($"玩家[{args.Player.Name}]购买了您的{item}");
                     target.NoticeChange(item.price);
                 }

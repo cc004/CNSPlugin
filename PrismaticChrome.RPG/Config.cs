@@ -10,11 +10,12 @@ namespace PrismaticChrome.RPG
 {
     public class Config : Config<Config>
     {
-        protected override string Filename => "PrismaticChrome.RPG.json";
-        [JsonProperty("死亡掉落系数")] public float DeathPenalty = .2f;
-        [JsonProperty("允许从雕像怪获得经验")] public bool AllowGainMoneyFromStatueMobs;
-        [JsonProperty("基础货币获取系数")] public float BaseMoney = 1f;
-        [JsonProperty("最大货币获取浮动系数")] public float FloatMoneyMax = .2f;
-        [JsonProperty("最小货币获取浮动系数")] public float FloatMoneyMin = -.2f;
+        public int DeathPenaltyLimit = 0;
+        public float DeathPenalty = .2f;
+        public bool AllowGainMoneyFromStatueMobs;
+        public float BaseMoney = 1f;
+        public float FloatMoneyMax = .2f;
+        public float FloatMoneyMin = -.2f;
+        public Dictionary<int, float> multiplier;
     }
 }

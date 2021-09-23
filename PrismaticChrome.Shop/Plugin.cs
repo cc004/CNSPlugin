@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace PrismaticChrome.Shop
 
         public override void Initialize()
         {
+            Debug.Assert(Main.ServerSideCharacter, "本插件要求开启ssc");
             RestHelper.Register<Rests>("shop");
             CommandHelper.Register<Commands>("shop");
         }
