@@ -83,7 +83,7 @@ namespace PrismaticChrome.Shop
         private static void AddShopItem(CommandArgs args, string provider, int count, int price, bool infinity)
         {
             var pro = Plugin.GetProvider(provider);
-            if (!pro.TryTakeFrom(args.Player, count, out var content))
+            if (!pro.TryTakeFrom(args.Player, count, out var content, infinity))
             {
                 args.Player.SendErrorMessage("物品数量不足");
                 return;

@@ -39,6 +39,7 @@ namespace PrismaticChrome.RPG
 
         public void SettleNPC(NPC npc)
         {
+            if (!damageDictionary.ContainsKey(npc)) return;
             var coeff = npc.lifeMax / damageDictionary[npc].Sum(p => p.Value);
             using (var context = Db.Context<Money>())
             {

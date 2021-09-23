@@ -24,16 +24,18 @@ namespace PrismaticChrome.Shop
             return true;
         }
 
-        protected override bool TryTakeFrom(TSPlayer player, int count, out ProtoItem content)
+        protected override bool TryTakeFrom(TSPlayer player, int count, out ProtoItem content, bool inf)
         {
             var item = player.SelectedItem;
-            content = null;
-            if (item.IsAir || item.stack < count) return false;
-            item.stack -= count;
             content = new ProtoItem()
             {
-                prefix = item.prefix, stack = count, type = item.type
+                prefix = item.prefix,
+                stack = count,
+                type = item.type
             };
+            if (inf) return true;
+            if (item.IsAir || item.stack < count) return false;
+            item.stack -= count;
             if (item.stack == 0) item.TurnToAir();
             item.Send();
             return true;

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyUtils", "LazyUtils\Lazy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.ProgressedShop", "PrismaticChrome.ProgressedShop\PrismaticChrome.ProgressedShop.csproj", "{01209B3D-CD1C-4EE4-98AE-B2193970FE74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.AutoRevive", "PrismaticChrome.AutoRevive\PrismaticChrome.AutoRevive.csproj", "{265495B9-51C7-49E1-9C7B-09F67E123D17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{265495B9-51C7-49E1-9C7B-09F67E123D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265495B9-51C7-49E1-9C7B-09F67E123D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265495B9-51C7-49E1-9C7B-09F67E123D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265495B9-51C7-49E1-9C7B-09F67E123D17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
