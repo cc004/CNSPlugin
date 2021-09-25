@@ -17,8 +17,8 @@ namespace PrismaticChrome.Core
         public static JToken getmoneyrank(RestRequestArgs args)
         {
             using (var context = Db.PlayerContext<Money>())
-                return JToken.FromObject(context.Config.OrderByDescending(d => d.money).AsEnumerable()
-                    .ToDictionary(d => d.name, d => d.money));
+                return JToken.FromObject(context.Config.AsEnumerable()
+                    .ToDictionary(d => d.name, d => d.money).OrderByDescending(d => d.Value));
         }
         [Permission("economy.admin")]
         public static JToken getplayermoney(RestRequestArgs args, string player)

@@ -17,6 +17,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.AutoRevive"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.CustomPlayer", "PrismaticChrome.CustomPlayer\PrismaticChrome.CustomPlayer.csproj", "{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.OnlineTime", "PrismaticChrome.OnlineTime\PrismaticChrome.OnlineTime.csproj", "{BCD227F6-2F25-44F5-AEC2-A45997532A17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.DeathTimes", "PrismaticChrome.DeathTimes\PrismaticChrome.DeathTimes.csproj", "{60109D02-CAF0-43B2-A746-7F7F230046EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Ranking", "PrismaticChrome.Ranking\PrismaticChrome.Ranking.csproj", "{13CCBBCF-EC6B-4310-89E9-47205A301E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dummy", "Dummy\Dummy.csproj", "{3627FA51-10F9-4F31-B363-B4B9102DDE46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +59,22 @@ Global
 		{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD227F6-2F25-44F5-AEC2-A45997532A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD227F6-2F25-44F5-AEC2-A45997532A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD227F6-2F25-44F5-AEC2-A45997532A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD227F6-2F25-44F5-AEC2-A45997532A17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60109D02-CAF0-43B2-A746-7F7F230046EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60109D02-CAF0-43B2-A746-7F7F230046EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60109D02-CAF0-43B2-A746-7F7F230046EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60109D02-CAF0-43B2-A746-7F7F230046EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13CCBBCF-EC6B-4310-89E9-47205A301E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13CCBBCF-EC6B-4310-89E9-47205A301E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13CCBBCF-EC6B-4310-89E9-47205A301E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13CCBBCF-EC6B-4310-89E9-47205A301E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3627FA51-10F9-4F31-B363-B4B9102DDE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3627FA51-10F9-4F31-B363-B4B9102DDE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3627FA51-10F9-4F31-B363-B4B9102DDE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3627FA51-10F9-4F31-B363-B4B9102DDE46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

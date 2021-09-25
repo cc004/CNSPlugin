@@ -53,6 +53,7 @@ namespace PrismaticChrome.CustomPlayer
                 var perm0 = query.Single().permission.Replace(perm + "\n", "");
                 query.Set(d => d.permission, d => perm0).Update();
                 args.Player.SendInfoMessage($"目标玩家的权限:\n{perm0}");
+                Plugin.ClearCache();
             }
         }
         [Permission("custom.admin")]
@@ -63,10 +64,11 @@ namespace PrismaticChrome.CustomPlayer
             {
                 query.Set(d => d.permission, d => (d.permission ?? "") + perm).Update();
                 args.Player.SendInfoMessage($"目标玩家的权限:\n{query.Single().permission}");
+                Plugin.ClearCache();
             }
         }
         [Permission("custom.admin")]
-        public static void list(CommandArgs args, string player, string perm)
+        public static void list(CommandArgs args, string player)
         {
             using (var query = Db.Get<Customized>(player))
             {

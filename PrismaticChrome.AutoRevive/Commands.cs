@@ -24,7 +24,7 @@ namespace PrismaticChrome.AutoRevive
                 args.Player.SendInfoMessage($"目标玩家的货币数:{query.Single().count}$");
             }
         }
-        [Permission("economy.player")]
+        [Permission("economy.player"), RealPlayer]
         public static void Main(CommandArgs args)
         {
             using (var query = args.Player.Get<AutoReviveCoin>())

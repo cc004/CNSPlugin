@@ -58,7 +58,7 @@ namespace PrismaticChrome.Core
                 args.Player.SendInfoMessage($"目标玩家的货币数:{query.Single().money}$");
             }
         }
-        [Permission("economy.player")]
+        [Permission("economy.player"), RealPlayer]
         public static void Main(CommandArgs args)
         {
             using (var query = args.Player.Get<Money>())

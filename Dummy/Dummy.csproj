@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LazyUtils\LazyUtils\LazyUtils.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.AutoRevive\PrismaticChrome.AutoRevive.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.Core\PrismaticChrome.Core.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.CustomPlayer\PrismaticChrome.CustomPlayer.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.DeathTimes\PrismaticChrome.DeathTimes.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.OnlineTime\PrismaticChrome.OnlineTime.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.ProgressedShop\PrismaticChrome.ProgressedShop.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.Ranking\PrismaticChrome.Ranking.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.RPG\PrismaticChrome.RPG.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.Shop\PrismaticChrome.Shop.csproj" />
+  </ItemGroup>
+
+</Project>

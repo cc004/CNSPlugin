@@ -53,15 +53,12 @@ namespace PrismaticChrome.AutoRevive
             var isrevive = teleport || args.Player.HasPermission("autorevive.revive");
             if (!isrevive) return;
             var pos = args.Player.TPlayer.position;
-            var vel = args.Player.TPlayer.velocity;
             args.Player.SetData<object>("handle_one_spawn", null);
             args.Player.Spawn(PlayerSpawnContext.ReviveFromDeath);
             args.Handled = true;
             if (teleport)
             {
-                args.Player.TPlayer.position = pos;
-                args.Player.TPlayer.velocity = vel;
-                TSPlayer.All.SendData(PacketTypes.PlayerUpdate, "", args.PlayerId);
+                args.Player.Teleport(pos.X, pos.Y);
             }
         }
     }
