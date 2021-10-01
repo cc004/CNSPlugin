@@ -32,7 +32,7 @@ namespace PrismaticChrome.Ranking
                         ["prefix"] = item.PrefixId,
                         ["stack"] = item.Stack
                     })),
-                    ["online"] = TShock.Players.Any(p => p.Name == usr.Name)
+                    ["online"] = TShock.Players.Any(p => p?.Account?.Name == usr.Name)
                 };
         }
         [Permission("ranking.quest")]

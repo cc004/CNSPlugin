@@ -17,7 +17,6 @@ namespace PrismaticChrome.Ranking
         public override void Initialize()
         {
             RestHelper.Register<Rests>("ranking");
-            TShock.RestApi.RegisterRedirect("/v1/questrank/rankboard", "/ranking/quest");
             TShock.RestApi.RegisterRedirect("/v1/onlinetime/rankboard", "/ranking/totalonline");
             TShock.RestApi.RegisterRedirect("/v1/dailyonlinetime/rankboard", "/ranking/dailyonline");
             TShock.RestApi.RegisterRedirect("/v1/questrank/rankboard", "/ranking/quest");

@@ -17,12 +17,15 @@ namespace PrismaticChrome.OnlineTime
         {
             using (var context = Db.Context<OnlineTimeR>())
             {
-                var ups = context.Config.Where(d => d.total > 5000).Select(d => d.name).ToArray();
-                context.Config.Where(d => d.total < 600)
+                var time = Config.Instance.timetoadmin;
+                var time2 = Config.Instance.timetodowgrade;
+                var times = Config.Instance.timestodowgrade;
+                var ups = context.Config.Where(d => d.total > time).Select(d => d.name).ToArray();
+                context.Config.Where(d => d.total < time2)
                     .Set(d => d.downgrade_count, d => d.downgrade_count + 1)
                     .Update();
-                context.Config.Where(d => d.total >= 600).Set(d => d.downgrade_count, _ => 0).Update();
-                var downs = context.Config.Where(d => d.downgrade_count >= 2).Select(d => d.name).ToArray();
+                context.Config.Where(d => d.total >= time2).Set(d => d.downgrade_count, _ => 0).Update();
+                var downs = context.Config.Where(d => d.downgrade_count >= times).Select(d => d.name).ToArray();
 
                 context.Config.Set(d => d.total, _ => 0).Update();
 

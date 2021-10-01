@@ -44,7 +44,7 @@ namespace PrismaticChrome.OnlineTime
         private void OnUpdate(EventArgs __)
         {
             ++timer;
-            if (timer % 60 * 60 != 0) return;
+            if (timer % (60 * 60) != 0) return;
             using (var context = Db.Context<OnlineTimeR>())
             {
                 foreach (var plr in TShock.Players)
