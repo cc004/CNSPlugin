@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace PrismaticChrome.RPG
 {
+    [Config]
     public class Config : Config<Config>
     {
         public int DeathPenaltyLimit = 0;

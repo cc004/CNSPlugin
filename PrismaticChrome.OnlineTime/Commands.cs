@@ -10,7 +10,8 @@ using TShockAPI.DB;
 
 namespace PrismaticChrome.OnlineTime
 {
-    public class Commands
+    [Command("onlinetime")]
+    public static class Commands
     {
         [Permission("onlinetime.admin")]
         public static void reset(CommandArgs args)

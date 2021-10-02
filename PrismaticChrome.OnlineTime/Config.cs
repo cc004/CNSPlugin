@@ -7,6 +7,7 @@ using LazyUtils;
 
 namespace PrismaticChrome.OnlineTime
 {
+    [Config]
     public class Config : Config<Config>
     {
         public List<string> groups;

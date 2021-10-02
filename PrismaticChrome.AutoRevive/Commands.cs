@@ -5,7 +5,8 @@ using TShockAPI;
 
 namespace PrismaticChrome.AutoRevive
 {
-    internal class Commands
+    [Command("arc", "复活币")]
+    public static class Commands
     {
         [Alias("给予"), Permission("autorevive.admin")]
         public static void give(CommandArgs args, string player, int amount)
@@ -24,7 +25,7 @@ namespace PrismaticChrome.AutoRevive
                 args.Player.SendInfoMessage($"目标玩家的货币数:{query.Single().count}$");
             }
         }
-        [Permission("economy.player"), RealPlayer]
+        [Permission("autorevive.player"), RealPlayer]
         public static void Main(CommandArgs args)
         {
             using (var query = args.Player.Get<AutoReviveCoin>())
@@ -32,7 +33,7 @@ namespace PrismaticChrome.AutoRevive
                 args.Player.SendInfoMessage($"当前货币总额:{query.Single().count}$");
             }
         }
-        [Permission("economy.player")]
+        [Permission("autorevive.player")]
         public static void Default(CommandArgs args)
         {
             args.Player.SendInfoMessage("/arc give <玩家> <数量>\n" +

@@ -12,7 +12,7 @@ using TShockAPI;
 namespace PrismaticChrome.AutoRevive
 {
     [ApiVersion(2, 1)]
-    public class Plugin : TerrariaPlugin
+    public class Plugin : LazyPlugin
     {
         public override string Name => "PrismaticChrome.AutoRevive";
         public Plugin(Main game) : base(game)
@@ -22,7 +22,6 @@ namespace PrismaticChrome.AutoRevive
         public override void Initialize()
         {
             Shop.Plugin.RegisterProvider(new AutoReviveCoinProvider());
-            CommandHelper.Register<Commands>("arc", "复活币");
             GetDataHandlers.KillMe.Register(OnKillMe, HandlerPriority.Highest);
             GetDataHandlers.PlayerSpawn.Register(OnPlayerSpawn, HandlerPriority.Highest);
         }

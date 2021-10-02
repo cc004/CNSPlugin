@@ -22,35 +22,12 @@ namespace PrismaticChrome.ProgressedShop
 
         private Func<bool> predict;
         internal bool lastpred;
-        private static Func<bool> GenExp(string exp)
-        {
-            var s = exp.Split('.');
-            var @class = string.Join(".", s.Take(s.Length - 1));
-            var field = typeof(Main).Assembly.GetType(@class).GetField(s.Last(), BindingFlags.Static | BindingFlags.Public);
-            return () => (bool)field.GetValue(null);
-        }
-        private Func<bool> Compile()
-        {
-            var exps = new List<Func<bool>>();
-            foreach (var exp in include)
-            {
-                var e = GenExp(exp);
-                exps.Add(() => e());
-            }
-            foreach (var exp in exclude)
-            {
-                var e = GenExp(exp);
-                exps.Add(() => !e());
-            }
-
-            return () => exps.All(f => f());
-        }
-
+        
         internal bool Predict
         {
             get
             {
-                if (predict == null) predict = Compile();
+                if (predict == null) predict = LazyUtils.Utils.Eval(include, exclude);
                 return predict();
             }
         }

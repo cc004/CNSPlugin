@@ -6,7 +6,7 @@ using TShockAPI;
 namespace PrismaticChrome.Ranking
 {
     [ApiVersion(2, 1)]
-    public class Plugin : TerrariaPlugin
+    public class Plugin : LazyPlugin
     {
         public override string Name => "PrismaticChrome.Ranking";
 
@@ -16,7 +16,6 @@ namespace PrismaticChrome.Ranking
 
         public override void Initialize()
         {
-            RestHelper.Register<Rests>("ranking");
             TShock.RestApi.RegisterRedirect("/v1/onlinetime/rankboard", "/ranking/totalonline");
             TShock.RestApi.RegisterRedirect("/v1/dailyonlinetime/rankboard", "/ranking/dailyonline");
             TShock.RestApi.RegisterRedirect("/v1/questrank/rankboard", "/ranking/quest");

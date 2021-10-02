@@ -8,7 +8,8 @@ using TShockAPI;
 
 namespace PrismaticChrome.Ranking
 {
-    internal class Rests
+    [Rest("ranking")]
+    public static class Rests
     {
         [Permission("ranking.query")]
         public static JToken query(RestRequestArgs args, string name)

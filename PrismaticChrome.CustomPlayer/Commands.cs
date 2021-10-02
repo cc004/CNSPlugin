@@ -11,7 +11,8 @@ using TShockAPI;
 
 namespace PrismaticChrome.CustomPlayer
 {
-    internal class Commands
+    [Command("custom")]
+    public static class Commands
     {
         [Permission("custom.admin")]
         public static void color(CommandArgs args, string player, string color)

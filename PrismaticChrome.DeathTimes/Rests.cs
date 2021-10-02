@@ -6,7 +6,8 @@ using TShockAPI;
 
 namespace PrismaticChrome.DeathTimes
 {
-    internal class Rests
+    [Rest("deathtimes")]
+    public static class Rests
     {
         [Permission("deathtimes.admin")]
         public static JToken rankboard(RestRequestArgs args)

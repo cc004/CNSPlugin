@@ -9,7 +9,8 @@ using TShockAPI;
 
 namespace PrismaticChrome.Core
 {
-    internal class Commands
+    [Command("eco", "经济")]
+    public static class Commands
     {
         [Alias("支付"), Permission("economy.player"), RealPlayer]
         public static void pay(CommandArgs args, string player, int amount)

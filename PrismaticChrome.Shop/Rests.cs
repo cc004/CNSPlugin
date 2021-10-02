@@ -10,7 +10,8 @@ using TShockAPI;
 
 namespace PrismaticChrome.Shop
 {
-    internal class Rests
+    [Rest("shop")]
+    public static class Rests
     {
         [Permission("economy.shop.player")]
         public static JToken getshopitems(RestRequestArgs args)

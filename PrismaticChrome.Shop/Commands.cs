@@ -10,7 +10,8 @@ using TShockAPI;
 
 namespace PrismaticChrome.Shop
 {
-    internal class Commands
+    [Command("shop")]
+    public static  class Commands
     {
         private const int pagelimit = 20;
 

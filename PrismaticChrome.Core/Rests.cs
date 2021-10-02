@@ -11,7 +11,8 @@ using TShockAPI;
 
 namespace PrismaticChrome.Core
 {
-    internal class Rests
+    [Rest("economy")]
+    public static class Rests
     {
         [Permission("economy.admin")]
         public static JToken getmoneyrank(RestRequestArgs args)

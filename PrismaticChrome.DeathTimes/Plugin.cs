@@ -6,7 +6,7 @@ using TShockAPI;
 namespace PrismaticChrome.DeathTimes
 {
     [ApiVersion(2, 1)]
-    public class Plugin : TerrariaPlugin
+    public class Plugin : LazyPlugin
     {
         public override string Name => "PrismaticChrome.DeathTimes";
 
@@ -16,7 +16,6 @@ namespace PrismaticChrome.DeathTimes
 
         public override void Initialize()
         {
-            RestHelper.Register<Rests>("deathtimes");
             TShock.RestApi.RegisterRedirect("/v1/deathtimes/rankboard", "/deathtimes/rankboard");
         }
 

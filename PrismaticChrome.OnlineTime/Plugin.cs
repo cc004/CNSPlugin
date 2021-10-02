@@ -13,14 +13,14 @@ using TShockAPI.Hooks;
 namespace PrismaticChrome.OnlineTime
 {
     [ApiVersion(2, 1)]
-    public class Plugin : TerrariaPlugin
+    public class Plugin : LazyPlugin
     {
         private static readonly TimeSpan DayZeroOffset = TimeSpan.FromHours(5);
 
         public int timer = 0;
         private int nowday = 0;
 
-        public override string Name => "PrismaticChrome.OnlineTimeR";
+        public override string Name => "PrismaticChrome.OnlineTime";
 
         public Plugin(Main game) : base(game)
         {
@@ -30,7 +30,6 @@ namespace PrismaticChrome.OnlineTime
         {
             ServerApi.Hooks.GamePostUpdate.Register(this, OnUpdate);
             PlayerHooks.PlayerPostLogin += PlayerHooksOnPlayerPostLogin;
-            CommandHelper.Register<Commands>("onlinetime");
             nowday = (DateTime.Now - DayZeroOffset).DayOfYear;
         }
 
