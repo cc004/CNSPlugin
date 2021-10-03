@@ -4,9 +4,10 @@ namespace Dummy
 {
     class Program
     {
-        static void Main(string[] args)
+		static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            float d = 2147483648;
+            Console.WriteLine((int)d);
         }
     }
 }

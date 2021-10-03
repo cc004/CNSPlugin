@@ -19,9 +19,6 @@ namespace PrismaticChrome.RPG
     [ApiVersion(2, 1)]
     public class Plugin : LazyPlugin
     {
-
-        public override string Name => "PrismaticChrome.RPG";
-
         public Plugin(Main game) : base(game)
         {
         }

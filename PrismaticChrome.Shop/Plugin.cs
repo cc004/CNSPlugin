@@ -16,11 +16,10 @@ namespace PrismaticChrome.Shop
         private static Dictionary<string, IStorageProvider> providers = new Dictionary<string, IStorageProvider>();
         public static void RegisterProvider(IStorageProvider provider) => providers.Add(provider.Name, provider);
         public static IStorageProvider GetProvider(string name) => providers[name];
-
-        public override string Name => "PrismaticChrome.Shop";
-
+        
         public Plugin(Main game) : base(game)
         {
+
         }
 
         public override void Initialize()

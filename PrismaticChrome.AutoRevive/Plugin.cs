@@ -14,7 +14,6 @@ namespace PrismaticChrome.AutoRevive
     [ApiVersion(2, 1)]
     public class Plugin : LazyPlugin
     {
-        public override string Name => "PrismaticChrome.AutoRevive";
         public Plugin(Main game) : base(game)
         {
         }

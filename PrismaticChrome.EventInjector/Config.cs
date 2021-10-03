@@ -7,13 +7,10 @@ using LazyUtils;
 using Terraria;
 using TerrariaApi.Server;
 
-namespace PrismaticChrome.Core
+namespace PrismaticChrome.EventInjector
 {
-    [ApiVersion(2, 1)]
-    public class Plugin : LazyPlugin
+    public class Config : Config<Config>
     {
-        public Plugin(Main game) : base(game)
-        {
-        }
+        public Dictionary<string, string> events;
     }
 }

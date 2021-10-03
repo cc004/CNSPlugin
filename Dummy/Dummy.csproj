@@ -13,6 +13,7 @@
     <ProjectReference Include="..\PrismaticChrome.DeathTimes\PrismaticChrome.DeathTimes.csproj" />
     <ProjectReference Include="..\PrismaticChrome.OnlineTime\PrismaticChrome.OnlineTime.csproj" />
     <ProjectReference Include="..\PrismaticChrome.ProgressedShop\PrismaticChrome.ProgressedShop.csproj" />
+    <ProjectReference Include="..\PrismaticChrome.PVP\PrismaticChrome.PVP.csproj" />
     <ProjectReference Include="..\PrismaticChrome.Ranking\PrismaticChrome.Ranking.csproj" />
     <ProjectReference Include="..\PrismaticChrome.RPG\PrismaticChrome.RPG.csproj" />
     <ProjectReference Include="..\PrismaticChrome.Shop\PrismaticChrome.Shop.csproj" />

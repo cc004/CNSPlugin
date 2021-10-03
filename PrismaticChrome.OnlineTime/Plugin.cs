@@ -19,9 +19,7 @@ namespace PrismaticChrome.OnlineTime
 
         public int timer = 0;
         private int nowday = 0;
-
-        public override string Name => "PrismaticChrome.OnlineTime";
-
+        
         public Plugin(Main game) : base(game)
         {
         }

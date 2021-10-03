@@ -8,8 +8,6 @@ namespace PrismaticChrome.Ranking
     [ApiVersion(2, 1)]
     public class Plugin : LazyPlugin
     {
-        public override string Name => "PrismaticChrome.Ranking";
-
         public Plugin(Main game) : base(game)
         {
         }
