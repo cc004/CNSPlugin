@@ -15,7 +15,7 @@ namespace PrismaticChrome.PVP
 		public int kill { get; set; }
 		public int death { get; set; }
 
-        private float GetPercent() => (float) killcount / (killcount + deathcount);
+        private float GetPercent() => killcount * 100f / (killcount + deathcount);
 
         public string GetQueryString()
         {

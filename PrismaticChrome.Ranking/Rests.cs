@@ -17,6 +17,8 @@ namespace PrismaticChrome.Ranking
             var usr = TShock.UserAccounts.GetUserAccountByName(name);
             var data = TShock.CharacterDB.GetPlayerData(null, usr.ID);
             using (var query = Db.Get<OnlineTimeR>(usr.Name))
+            {
+                var q = query.Single();
                 return new JObject
                 {
                     ["group"] = usr.Group,
@@ -26,7 +28,8 @@ namespace PrismaticChrome.Ranking
                     ["statMana"] = data.mana,
                     ["statManaMax"] = data.maxMana,
                     ["questsCompleted"] = data.questsCompleted,
-                    ["onlinetime"] = query.Single().total,
+                    ["daily"] = q.daily,
+                    ["onlinetime"] = q.total,
                     ["inventory"] = new JArray(data.inventory.Select((item) => new JObject
                     {
                         ["id"] = item.NetId,
@@ -35,6 +38,7 @@ namespace PrismaticChrome.Ranking
                     })),
                     ["online"] = TShock.Players.Any(p => p?.Account?.Name == usr.Name)
                 };
+            }
         }
         [Permission("ranking.quest")]
         public static JToken quest(RestRequestArgs args) =>

@@ -62,7 +62,12 @@ namespace PrismaticChrome.OnlineTime
             using (var context = Db.Context<OnlineTimeR>())
             {
                 context.Config.Set(d => d.is_admin, _ => false).Update();
-                context.Config.OrderByDescending(d => d.daily).Take(3).Set(d => d.is_admin, _ => true).Update();
+                foreach (var name in context.Config.OrderByDescending(d => d.daily).AsEnumerable()
+                    .Where(d => Config.Instance.groups.Contains(TShock.UserAccounts.GetUserAccountByName(d.name).Group))
+                    .Take(3).Select(d => d.name))
+                    context.Config.Where(d => d.name == name)
+                        .Set(d => d.is_admin, _ => true).Update();
+
                 context.Config.Set(d => d.daily, _ => 0).Update();
 
                 foreach (var plr in TShock.Players)
