@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31410.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Core", "PrismaticChrome.Core\PrismaticChrome.Core.csproj", "{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.RPG", "PrismaticChrome.RPG\PrismaticChrome.RPG.csproj", "{8C96594B-0487-4120-8987-4D8FFF6A66D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Shop", "PrismaticChrome.Shop\PrismaticChrome.Shop.csproj", "{D3F17218-39EE-4FB9-8284-48DF515E3633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazyUtils", "LazyUtils\LazyUtils\LazyUtils.csproj", "{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.ProgressedShop", "PrismaticChrome.ProgressedShop\PrismaticChrome.ProgressedShop.csproj", "{01209B3D-CD1C-4EE4-98AE-B2193970FE74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.AutoRevive", "PrismaticChrome.AutoRevive\PrismaticChrome.AutoRevive.csproj", "{265495B9-51C7-49E1-9C7B-09F67E123D17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.CustomPlayer", "PrismaticChrome.CustomPlayer\PrismaticChrome.CustomPlayer.csproj", "{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.OnlineTime", "PrismaticChrome.OnlineTime\PrismaticChrome.OnlineTime.csproj", "{BCD227F6-2F25-44F5-AEC2-A45997532A17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.DeathTimes", "PrismaticChrome.DeathTimes\PrismaticChrome.DeathTimes.csproj", "{60109D02-CAF0-43B2-A746-7F7F230046EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.Ranking", "PrismaticChrome.Ranking\PrismaticChrome.Ranking.csproj", "{13CCBBCF-EC6B-4310-89E9-47205A301E97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dummy", "Dummy\Dummy.csproj", "{3627FA51-10F9-4F31-B363-B4B9102DDE46}"
+	ProjectSection(ProjectDependencies) = postProject
+		{12B2AE3F-76BE-4161-B057-1C269197B03E} = {12B2AE3F-76BE-4161-B057-1C269197B03E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.PVP", "PrismaticChrome.PVP\PrismaticChrome.PVP.csproj", "{12B2AE3F-76BE-4161-B057-1C269197B03E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismaticChrome.EventInjector", "PrismaticChrome.EventInjector\PrismaticChrome.EventInjector.csproj", "{562C0E3E-E9BC-4E1C-9881-2358DF57E1F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7851FD17-E5DC-4B16-8EEF-6AF30784A8B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C96594B-0487-4120-8987-4D8FFF6A66D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C96594B-0487-4120-8987-4D8FFF6A66D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C96594B-0487-4120-8987-4D8FFF6A66D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C96594B-0487-4120-8987-4D8FFF6A66D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3F17218-39EE-4FB9-8284-48DF515E3633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3F17218-39EE-4FB9-8284-48DF515E3633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3F17218-39EE-4FB9-8284-48DF515E3633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3F17218-39EE-4FB9-8284-48DF515E3633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01209B3D-CD1C-4EE4-98AE-B2193970FE74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{265495B9-51C7-49E1-9C7B-09F67E123D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265495B9-51C7-49E1-9C7B-09F67E123D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265495B9-51C7-49E1-9C7B-09F67E123D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265495B9-51C7-49E1-9C7B-09F67E123D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE86E74-D664-4F5E-B0A8-1680D8F84C83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD227F6-2F25-44F5-AEC2-A45997532A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD227F6-2F25-44F5-AEC2-A45997532A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD227F6-2F25-44F5-AEC2-A45997532A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD227F6-2F25-44F5-AEC2-A45997532A17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60109D02-CAF0-43B2-A746-7F7F230046EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60109D02-CAF0-43B2-A746-7F7F230046EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60109D02-CAF0-43B2-A746-7F7F230046EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60109D02-CAF0-43B2-A746-7F7F230046EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13CCBBCF-EC6B-4310-89E9-47205A301E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13CCBBCF-EC6B-4310-89E9-47205A301E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13CCBBCF-EC6B-4310-89E9-47205A301E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13CCBBCF-EC6B-4310-89E9-47205A301E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3627FA51-10F9-4F31-B363-B4B9102DDE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3627FA51-10F9-4F31-B363-B4B9102DDE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3627FA51-10F9-4F31-B363-B4B9102DDE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3627FA51-10F9-4F31-B363-B4B9102DDE46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12B2AE3F-76BE-4161-B057-1C269197B03E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12B2AE3F-76BE-4161-B057-1C269197B03E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12B2AE3F-76BE-4161-B057-1C269197B03E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12B2AE3F-76BE-4161-B057-1C269197B03E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562C0E3E-E9BC-4E1C-9881-2358DF57E1F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562C0E3E-E9BC-4E1C-9881-2358DF57E1F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562C0E3E-E9BC-4E1C-9881-2358DF57E1F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562C0E3E-E9BC-4E1C-9881-2358DF57E1F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB30457F-9F2D-49BC-BE7D-BDD161BF7125}
+	EndGlobalSection
+EndGlobal

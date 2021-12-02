@@ -34,8 +34,17 @@ namespace PrismaticChrome.AutoRevive
             }
         }
 
+        private const string TIMER_KEY = "AutoRevive.Timer";
+
         private static void OnKillMe(object _, GetDataHandlers.KillMeEventArgs args)
         {
+            if (args.Player.ContainsData(TIMER_KEY) &&
+                args.Player.GetData<long>(TIMER_KEY) + Config.Instance.cooldown > timer)
+            {
+                args.Player.SendInfoMessage("复活冷却中");
+                return;
+            }
+
             var teleport = args.Player.HasPermission("autorevive.teleport");
             using (var query = args.Player.Get<AutoReviveCoin>())
             {
@@ -53,6 +62,7 @@ namespace PrismaticChrome.AutoRevive
             var pos = args.Player.TPlayer.position;
             args.Player.SetData<object>("handle_one_spawn", null);
             args.Player.Spawn(PlayerSpawnContext.ReviveFromDeath);
+            args.Player.SetData(TIMER_KEY, timer);
             args.Handled = true;
             if (teleport)
             {
