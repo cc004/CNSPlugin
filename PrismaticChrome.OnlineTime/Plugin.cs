@@ -16,8 +16,7 @@ namespace PrismaticChrome.OnlineTime
     public class Plugin : LazyPlugin
     {
         private static readonly TimeSpan DayZeroOffset = TimeSpan.FromHours(5);
-
-        public int timer = 0;
+        
         private int nowday = 0;
         
         public Plugin(Main game) : base(game)
@@ -40,7 +39,6 @@ namespace PrismaticChrome.OnlineTime
 
         private void OnUpdate(EventArgs __)
         {
-            ++timer;
             if (timer % (60 * 60) != 0) return;
             using (var context = Db.Context<OnlineTimeR>())
             {
@@ -64,7 +62,7 @@ namespace PrismaticChrome.OnlineTime
                 context.Config.Set(d => d.is_admin, _ => false).Update();
                 foreach (var name in context.Config.OrderByDescending(d => d.daily).AsEnumerable()
                     .Where(d => Config.Instance.groups.Contains(TShock.UserAccounts.GetUserAccountByName(d.name).Group))
-                    .Take(3).Select(d => d.name))
+                    .Take(3).Select(d => d.name).ToArray())
                     context.Config.Where(d => d.name == name)
                         .Set(d => d.is_admin, _ => true).Update();
 

@@ -143,16 +143,19 @@ namespace PrismaticChrome.CustomPlayer
 				return;
 			}
 
-            string prefix, suffix;
-            Color? color;
+            string prefix = null, suffix = null;
+            Color? color = null;
 
-            using (var query = tsplayer.Get<Customized>())
-            {
-                var data = query.Single();
-                prefix = data.prefix;
-                suffix = data.suffix;
-                color = string.IsNullOrEmpty(data.color) ? null : new Color?(new Color(uint.Parse(data.color, NumberStyles.HexNumber)));
-            }
+            if (tsplayer.Account != null)
+                using (var query = tsplayer.Get<Customized>())
+                {
+                    var data = query.Single();
+                    prefix = data.prefix;
+                    suffix = data.suffix;
+                    color = string.IsNullOrEmpty(data.color)
+                        ? null
+                        : new Color?(new Color(uint.Parse(data.color, NumberStyles.HexNumber)));
+                }
 
 			if (!TShock.Config.Settings.EnableChatAboveHeads)
 			{
