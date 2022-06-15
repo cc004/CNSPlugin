@@ -94,6 +94,10 @@
       <Project>{e0109af4-d4da-46a4-8508-d9e4acdbebb6}</Project>
       <Name>LazyUtils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UniBan\UniBan.csproj">
+      <Project>{f910994f-4318-46dc-bf9b-7a6eec5c5ef5}</Project>
+      <Name>UniBan</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
