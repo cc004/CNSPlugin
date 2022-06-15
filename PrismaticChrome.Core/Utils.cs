@@ -28,7 +28,7 @@ namespace PrismaticChrome.Core
         }
         public static void NoticeChange(this string account, int val)
         {
-            var plr = TShock.Players.Single(p => p?.Account?.Name == account);
+            var plr = TShock.Players.FirstOrDefault(p => p?.Account?.Name == account);
             if (plr == null) return;
             NoticeChange(plr, val);
         }
