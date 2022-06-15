@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LazyUtils;
 
-namespace Dummy
+namespace Chrome.AutoRevive
 {
-    internal class Program
+    [Config]
+    public class Config : Config<Config>
     {
-        static void Main(string[] args)
-        {
-        }
+        public int cooldown = 600;
     }
 }

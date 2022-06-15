@@ -1,22 +1,99 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{AFB33DC1-DAD0-426A-8212-1BFB47FA3303}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Dummy</RootNamespace>
+    <AssemblyName>Dummy</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
-
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LazyUtils\LazyUtils\LazyUtils.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.AutoRevive\PrismaticChrome.AutoRevive.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.Core\PrismaticChrome.Core.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.CustomPlayer\PrismaticChrome.CustomPlayer.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.DeathTimes\PrismaticChrome.DeathTimes.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.OnlineTime\PrismaticChrome.OnlineTime.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.ProgressedShop\PrismaticChrome.ProgressedShop.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.PVP\PrismaticChrome.PVP.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.Ranking\PrismaticChrome.Ranking.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.RPG\PrismaticChrome.RPG.csproj" />
-    <ProjectReference Include="..\PrismaticChrome.Shop\PrismaticChrome.Shop.csproj" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chrome.AutoRevive\Chrome.AutoRevive.csproj">
+      <Project>{265495b9-51c7-49e1-9c7b-09f67e123d17}</Project>
+      <Name>Chrome.AutoRevive</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.Core\Chrome.Core.csproj">
+      <Project>{7851fd17-e5dc-4b16-8eef-6af30784a8b1}</Project>
+      <Name>Chrome.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.CustomPlayer\Chrome.CustomPlayer.csproj">
+      <Project>{9ce86e74-d664-4f5e-b0a8-1680d8f84c83}</Project>
+      <Name>Chrome.CustomPlayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.DeathTimes\Chrome.DeathTimes.csproj">
+      <Project>{60109d02-caf0-43b2-a746-7f7f230046ee}</Project>
+      <Name>Chrome.DeathTimes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.OnlineTime\Chrome.OnlineTime.csproj">
+      <Project>{bcd227f6-2f25-44f5-aec2-a45997532a17}</Project>
+      <Name>Chrome.OnlineTime</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.ProgressedShop\Chrome.ProgressedShop.csproj">
+      <Project>{01209b3d-cd1c-4ee4-98ae-b2193970fe74}</Project>
+      <Name>Chrome.ProgressedShop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.PVP\Chrome.PVP.csproj">
+      <Project>{12b2ae3f-76be-4161-b057-1c269197b03e}</Project>
+      <Name>Chrome.PVP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.Ranking\Chrome.Ranking.csproj">
+      <Project>{13ccbbcf-ec6b-4310-89e9-47205a301e97}</Project>
+      <Name>Chrome.Ranking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.RPG\Chrome.RPG.csproj">
+      <Project>{8c96594b-0487-4120-8987-4d8fff6a66d5}</Project>
+      <Name>Chrome.RPG</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chrome.Shop\Chrome.Shop.csproj">
+      <Project>{d3f17218-39ee-4fb9-8284-48df515e3633}</Project>
+      <Name>Chrome.Shop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LazyUtils\LazyUtils\LazyUtils.csproj">
+      <Project>{e0109af4-d4da-46a4-8508-d9e4acdbebb6}</Project>
+      <Name>LazyUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

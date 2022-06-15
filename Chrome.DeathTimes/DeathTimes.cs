@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LazyUtils;
 
-namespace Dummy
+namespace Chrome.DeathTimes
 {
-    internal class Program
+    public class DeathTimes : PlayerConfigBase<DeathTimes>
     {
-        static void Main(string[] args)
-        {
-        }
+        public int times = 0;
     }
 }

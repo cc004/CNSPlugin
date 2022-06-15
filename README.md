@@ -1,2 +1,5 @@
-# PrismaticChrome
-rewritten version of PrismaticChrome
+# CNSPlugin
+
+includes plugins written for cns server
+
+licensed under AGPL v3
