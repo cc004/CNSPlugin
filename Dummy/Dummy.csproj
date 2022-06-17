@@ -94,6 +94,14 @@
       <Project>{e0109af4-d4da-46a4-8508-d9e4acdbebb6}</Project>
       <Name>LazyUtils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NetDataRecorder\NetDataRecorder.csproj">
+      <Project>{51483961-f699-424f-b752-2b3d9cc35b55}</Project>
+      <Name>NetDataRecorder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TempGroup\TempGroup.csproj">
+      <Project>{8e8dfdd1-b9a4-42fe-ac5a-a8a9e3cdfb5d}</Project>
+      <Name>TempGroup</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UniBan\UniBan.csproj">
       <Project>{f910994f-4318-46dc-bf9b-7a6eec5c5ef5}</Project>
       <Name>UniBan</Name>

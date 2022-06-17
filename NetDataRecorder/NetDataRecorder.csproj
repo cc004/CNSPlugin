@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{F910994F-4318-46DC-BF9B-7A6EEC5C5EF5}</ProjectGuid>
+    <ProjectGuid>{51483961-F699-424F-B752-2B3D9CC35B55}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UniBan</RootNamespace>
-    <AssemblyName>UniBan</AssemblyName>
+    <RootNamespace>NetDataRecorder</RootNamespace>
+    <AssemblyName>NetDataRecorder</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
@@ -61,18 +60,20 @@
     <Reference Include="TerrariaServer, Version=1.4.2.3, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\packages\TerrariaServer.TShock.4.5.5\lib\net452\TerrariaServer.exe</HintPath>
     </Reference>
+    <Reference Include="TrProtocol">
+      <HintPath>.\TrProtocol.dll</HintPath>
+    </Reference>
     <Reference Include="TShockAPI, Version=4.5.5.0, Culture=neutral, processorArchitecture=x86">
       <HintPath>..\packages\TerrariaServer.TShock.4.5.5\lib\net452\TShockAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LazyUtils\LazyUtils\LazyUtils.csproj">
-      <Project>{e0109af4-d4da-46a4-8508-d9e4acdbebb6}</Project>
+      <Project>{E0109AF4-D4DA-46A4-8508-D9E4ACDBEBB6}</Project>
       <Name>LazyUtils</Name>
     </ProjectReference>
   </ItemGroup>
